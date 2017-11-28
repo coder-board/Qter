@@ -1,0 +1,32 @@
+<view class="container">
+	<view class="body-view">
+		<view class="top">
+			<span>头像</span>
+			<view class="headicon">
+				<!-- <image></image> -->
+			</view>
+		</view>	
+		<view class="info">
+		   <form>
+			  <view class="person" wx:for="{{person}}">
+			  	 <text>{{item.index}}</text><input type="text"/>{{item.message}}
+			  </view>
+			  <view class="select" wx:for="{{select}}">
+			  	 <text>{{item.index}}</text><picker><view class="arr"></view></picker>
+			  </view>
+			  <view class="exp">工作经历</view>
+			  <view class="experience" wx:for="{{experience}}">
+			  	 <text>{{item.index}}</text><picker><view class="arr"></view></picker>
+			  </view>
+              <view class="intro">
+              	 <text>个人简介</text>
+              	 <textarea>虽然是个</textarea>
+              </view>
+              <view class="footer">
+              	<button form-type="submit">保存</button>
+              	<button form-type="reset">取消</button>	
+              </view>
+		   </form>
+		</view>
+	</view>
+</view>
