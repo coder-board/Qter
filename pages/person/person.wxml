@@ -10,8 +10,11 @@
 				<text>{{person.department}}</text>
 			</view>
 		</view>
-		<navigator class="nav" wx:for="{{nav}}" url="{{item.url}}">{{item.message}}
+		<navigator class="nav" url="../../pages/person-edit/person-edit">编辑个人信息
 			<view class="arr"></view>
 		</navigator>	
+		<view class="nav">设置普通用户可见自己所有信息
+			<switch bindchange=""></switch>
+		</view>
 	</view>
 </view>

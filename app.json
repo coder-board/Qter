@@ -1,13 +1,13 @@
 {
   "pages":[
-    "pages/office/office",   
+    
     "pages/index/index",
     "pages/logs/logs",
-    
+    "pages/office/office", 
     "pages/person/person",
     "pages/person-edit/person-edit",
-
-    "pages/person-set/person-set"
+    "pages/person-detail/person-detail"
+   
   ],
   "window":{
     "backgroundTextStyle":"light",

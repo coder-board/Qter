@@ -3,9 +3,28 @@
 		<view class="header">
 			<view class="title"><text>历届校友就职去向</text></view>
             <view class="pick-header">
-        	    <!-- <image src=""></image> -->
+        	    <view class="img"><image src="../../images/date.png"></image></view>
         	    <view class="year"><text>2017</text></view>
         		<view class="arr" bindtap="onPickerHeaderClick"></view>
+            </view>
+		</view>
+		<view class="content">
+			<view class="percent-img"></view>
+			<view class="percent">
+				<view class="rank" wx:for="{{rank}}">
+					<view class="rating"><text>{{item.rating}}</text></view>
+					<view class="office"><text>{{item.office}}{{item.number}}人</text></view>
+				</view>
+			</view>
+		</view>
+		<view class="goes">
+			<view class="title">500+校友就职去向</view>
+            <view class="percent-goes" wx:for="{{percentGoes}}">
+            	<view class="pro" style="width:{{item.number/2.5}}%;"></view>
+            	<view class="percent-content">
+	            	<view class="percent-office"><span>{{item.office}}</span>{{item.number/5}}%</view>
+	            	<view class="percent-number">{{item.number}}人</view>
+	            </view>
             </view>
 		</view>
 	</view>

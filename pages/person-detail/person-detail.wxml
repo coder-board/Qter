@@ -1,0 +1,43 @@
+<view class="container">
+	<view class="body-view">
+		<view class="top">
+			<view class="headicon">
+				<!-- <image></image> -->
+			</view>
+			<view class="refer">
+				<text class="name">{{person.name}}</text>
+				<text>{{person.office}}</text>
+				<text>{{person.department}}</text>
+			</view>
+		</view>
+		<view class="info">
+			<view class="person-detail" wx:for="{{personDetail}}">
+				<text>{{item.index}}</text>
+				<text class="msg">{{item.message}}</text>
+
+			</view>
+			<view class="bor"></view>
+			<view class="case" wx:for="{{case}}">
+				<text>{{item.index}}</text>
+				<text class="msg">{{item.message}}</text>
+			</view>
+			<view class="bor"></view>
+            <view class="experience">
+            	<view class="title"><text>工作经历</text></view>
+                <view class="exper-content" wx:for="{{experience}}">
+	              <view class="year">
+	              	<view class="up">入职年份</view>
+	              	<view class="down">{{item.year}}</view>
+	              </view>
+	              <view class="office"><view class="up">入职公司</view><view class="down">{{item.office}}</view></view>
+	              <view class="position"><view class="up">入职岗位</view><view class="down">{{item.position}}</view></view>
+                </view>
+            </view>
+            <view class="introduction">
+            		<text>个人简介</text>
+            		<textarea>虽然是个大佬但是</textarea>
+            </view>
+		</view>
+
+	</view>
+</view>
