@@ -13,6 +13,8 @@
 - [三、用户部分](#三用户部分)
   - [1. 初始化用户界面](#1-初始化用户界面)
   - [2. 修改用户资料](#2-修改用户资料)
+- [四、数据统计部分](#四数据统计部分)
+  - [1. 根据年份获取就职数据](#1-根据年份获取就职数据)
 
 -------
 
@@ -20,8 +22,10 @@
 
 ##### 1. 接口请求说明 #####
 
-GET参数请放在Url内，如``/GetMemberList/12``
+GET参数请放在Url内，如``/api/GetMemberList/12``
 接口Url内的{xx}说明xx是get参数应该放的位置
+
+接口调用频率为：100次/分钟
 
 ##### 2. 请求参数说明 #####
 
@@ -33,7 +37,7 @@ GET参数请放在Url内，如``/GetMemberList/12``
 
 |返回键|类型|返回值|说明|
 |:---:|:---:|:---:|:---:|
-|code|string|suceess|返回结果|
+|status|string|suceess|返回结果|
 |response|object|{xxx}|响应体|
 
 其中response中包含响应数据，具体格式请查看具体接口。
@@ -58,7 +62,7 @@ GET参数请放在Url内，如``/GetMemberList/12``
 
 ##### 1. 根据部门年份获取用户列表 #####
 - 描述：根据部门年份获取用户列表
-- 请求地址：`/getUserList/{apartment}/{year}`
+- 请求地址：`/api/getUserList/{apartment}/{year}`
 - 请求方式：get
 - 请求参数：
 |参数名|类型|是否必选|说明|
@@ -67,15 +71,15 @@ GET参数请放在Url内，如``/GetMemberList/12``
 |year|string|否|默认为最新一年|
 - 响应：
 |参数名|类型|说明|
-|:-:|:-:|:-:|
+|:--:|:--:|:--:|
 |x|x|x|
 - 响应示例：
-```
+```json
 {
-    "code": "success",
-    "response": {
+    "status": "success",
+    "response": [
         //TODO
-    }
+    ]
 }
 ```
 
@@ -85,45 +89,30 @@ GET参数请放在Url内，如``/GetMemberList/12``
 
 ##### 1. 初始化用户界面 #####
 - 描述：初始化用户界面
-- 请求地址：`/person`
+- 请求地址：`/api/person`
 - 请求方式：get
 - 请求参数：无
 - 响应：
 |参数名|类型|说明|
-|:-:|:-:|:-:|
+|:--:|:--:|:--:|
 |x|x|x|
 - 响应示例：
-```
+```json
 {
-    "code": "success",
+    "status": "success",
     "response": {
-        //TODO
-    }
-}
-```
-
-##### 1. 初始化用户界面 #####
-- 描述：初始化用户界面
-- 请求地址：`/person`
-- 请求方式：get
-- 请求参数：无
-- 响应：
-|参数名|类型|说明|
-|:-:|:-:|:-:|
-|x|x|x|
-- 响应示例：
-```
-{
-    "code": "success",
-    "response": {
-        //TODO
+        "person" : {
+          "name" : "Pr0ph3t",
+          "position" : "打杂",
+          "department" : "研发部"
+        }
     }
 }
 ```
 
 ##### 2. 修改用户资料 #####
 - 描述：修改用户资料
-- 请求地址：`/person`
+- 请求地址：`/api/person`
 - 请求方式：post
 - 请求参数：
 |参数名|类型|是否必选|说明|
@@ -134,11 +123,72 @@ GET参数请放在Url内，如``/GetMemberList/12``
 |:-:|:-:|:-:|
 |x|x|x|
 - 响应示例：
-```
+```json
 {
-    "code": "success",
+    "status": "success",
     "response": {
-        //TODO
+        ""
+    }
+}
+```
+
+-----
+
+## 四、数据统计部分 ##
+
+##### 1. 根据年份获取就职数据 #####
+- 描述：根据年份获取就职数据
+- 请求地址：`/api/statistics/{year}`
+- 请求方式：get
+- 请求参数：
+|参数名|类型|是否必选|说明|
+|:-:|:-:|:-:|:-:|
+|year|string|false|默认为最新一届|
+- 响应：
+|参数名|类型|说明|
+|:-:|:-:|:-:|
+|rank|array|百分比排行|
+|percentages|array|人数排行|
+- 响应示例：
+```json
+{
+    "status": "success",
+    "response": {
+        "rank" : [
+          {
+            "rating" : "34%",
+            "office" : "Tencent",
+            "number" : 34
+          },
+          {
+            "rating" : "30%",
+            "office" : "Ali",
+            "number" : 30
+          },
+          {
+            "rating" : "26%",
+            "office" : "Baidu",
+            "number" : 26
+          }
+        ],
+        "percentages" : [
+          {
+            "office" : "Tencent",
+            "number" : 34
+          },
+          {
+            "office" : "Ali",
+            "number" : 30
+          },
+          {
+            "office" : "Baidu",
+            "number" : 26
+          },
+          {
+            "office" : "Microsoft",
+            "number" : 10
+          }
+        ]
     }
 }
 ```
